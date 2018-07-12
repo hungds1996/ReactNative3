@@ -5,20 +5,27 @@ import {
   View,
   Button,
   Image,
-  Dimensions
+  Dimensions,
+  TouchableOpacity
 } from 'react-native';
 
 class ComicListItem extends Component {
   state = {  }
   render() {
     return (
-        <View style={styles.container}>
+        <TouchableOpacity 
+            style={styles.container}
+            onPress={() => this.props.navigation.navigate('ComicDetail', {comic: this.props.comic})}
+        >
             <Image
                 style={styles.image}
-                source={{uri: 'https://api.techkids.vn/reactnative/media/comic/lokcomic1giaingochungkhoanp1/Copy_of_1.jpg'}}
+                source={{uri: this.props.comic.photos[0]}}
             />
-            <Text style={styles.text}>LOK Comic #1: Giải ngố chứng khoán (P.1)</Text>
-        </View>
+            <Text 
+                style={styles.text}
+                numberOfLines={2}    
+            >{this.props.comic.title}</Text>
+        </TouchableOpacity>
     );
   }
 }
@@ -26,7 +33,8 @@ class ComicListItem extends Component {
 const styles = StyleSheet.create({
     container: {
         height: 300,
-        width: Dimensions.get('window').width/2
+        width: Dimensions.get('window').width/2,
+        padding: 5
     },
     image: {
         height: 250,

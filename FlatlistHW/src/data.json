@@ -1,0 +1,41 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name" : "Mc Donalds",
+            "logo": "http://www.brandsvietnam.com/img/2012/mcdonalds.jpg",
+            "address": "123 NhaToi ooo.999",
+            "rate": 3,
+            "category": "Restaurant",
+            "distance": 0.2 
+        },
+        {
+            "id": 2,
+            "name" : "Mc Donalds",
+            "logo": "http://www.brandsvietnam.com/img/2012/mcdonalds.jpg",
+            "address": "123 NhaToi ooo.999",
+            "rate": 2,
+            "category": "Restaurant",
+            "distance": 0.6
+        },
+        {
+            "id": 3,
+            "name" : "Mc Donalds",
+            "logo": "http://www.brandsvietnam.com/img/2012/mcdonalds.jpg",
+            "address": "123 NhaToi ooo.999",
+            "rate": 4,
+            "category": "Restaurant",
+            "distance": 2 
+        },
+        {
+            "id": 4,
+            "name" : "Mc Donalds",
+            "logo": "http://www.brandsvietnam.com/img/2012/mcdonalds.jpg",
+            "address": "123 NhaToi ooo.999",
+            "rate": 1,
+            "category": "Restaurant",
+            "distance": 10
+        }
+        
+    ]
+}

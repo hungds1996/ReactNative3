@@ -5,14 +5,30 @@
  */
 
 import React, { Component } from 'react';
-import {Platform,StyleSheet,Text,View} from 'react-native';
+import {Platform,StyleSheet,Text,View, YellowBox } from 'react-native';
+import { createStackNavigator } from 'react-navigation';
 
 import ComicListScreen from './ComicListScreen'
-type Props = {};
+import ComicDetail from './ComicDetail'
+
+YellowBox.ignoreWarnings([''])
+
+const Navigation = createStackNavigator({
+  ComicList: {
+    screen: ComicListScreen,
+    navigationOptions: ({navigaiton}) => (
+      {title: 'Comics'}
+    )
+  },
+  ComicDetail:{
+    screen: ComicDetail
+  }
+})
+
 export default class App extends Component<Props> {
   render() {
     return (
-      <ComicListScreen/>
+      <Navigation/>
     );
   }
 }

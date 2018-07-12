@@ -10,10 +10,16 @@ import {
 import {data} from './database.json'
 import ComicListItem from './ComicListItem';
 
+import Orientation from 'react-native-orientation';
+
 class ComicListScreen extends Component {
   state = {  }
 
-  renderItem = ({item}) => <ComicListItem/>
+  componentDidMount() {
+    Orientation.lockToPortrait();
+  }
+
+  renderItem = ({item}) => <ComicListItem comic={item} navigation={this.props.navigation}/>
 
   keyExtractor = (item, index) => item.id
   render() {
