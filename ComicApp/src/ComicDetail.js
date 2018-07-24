@@ -3,15 +3,23 @@ import {
   Text,
   View,
   FlatList,
-  Image
+  Image,
+  Dimensions
 } from 'react-native';
 
+import ScaledImage from './ScaledImage'
 import {data} from './database.json'
 
 class ComicDetail extends Component {
   state = {  }
 
-  renderItem = ({item}) => <Image style={{height: 250}} source={{uri: item}}/>
+  renderItem = ({item}) => <ScaledImage width={Dimensions.get('window').width} uri={item}/>
+
+  static navigationOptions = ({navigation}) => {
+    return {
+      title: navigation.state.params.comic.title
+    }
+  }
 
   render() {
     return (
