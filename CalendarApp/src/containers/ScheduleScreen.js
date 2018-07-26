@@ -3,14 +3,24 @@ import {
   StyleSheet,
   Text,
   View,
-  Button
+  Button,
+  SectionList
 } from 'react-native';
 import CalendarStrip from 'react-native-calendar-strip';
 
 import {white, calendarBackground} from '../styles'
-import ItemData from '../components/ItemData'
+import ItemDate from '../components/ItemDate'
+import ItemTask from '../components/ItemTask'
+
+import {data} from '../database.json'
+
 class ScheduleScreen extends Component {
   state = {  }
+
+  renderItem = ({item}) => <ItemTask task={item}/>
+
+  renderSectionHeader = ({section: {date}}) => <ItemDate date={date}/>
+
   render() {
     return (
         <View
@@ -21,7 +31,12 @@ class ScheduleScreen extends Component {
             calendarColor={calendarBackground}
 
           />
-          <ItemData/>
+          <SectionList
+            renderItem={this.renderItem}
+            renderSectionHeader={this.renderSectionHeader}
+            sections={data}
+            keyExtractor={(item) => item.id}
+          />
         </View>
     );
   }
